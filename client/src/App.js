@@ -1,5 +1,6 @@
 import './App.css';
 import { useState, useEffect } from 'react'
+import { Switch, Route, Router } from 'react-router-dom'
 
 function App() {
 
@@ -13,7 +14,14 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Page Count: {count}</h1>
+      <Switch>
+        <Route exact path="/sessions">
+          <h1>Page Count: {count}</h1>
+        </Route>
+        <Route exact path="/testing">
+          <h1>Test Route</h1>
+        </Route>
+      </Switch>
     </div>
   );
 }

@@ -2,14 +2,11 @@ import './App.css';
 import { useState, useEffect } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Login from './components/Login'
+import NavBar from './components/NavBar';
 
 function App() {
 
   const [currentUser, setCurrentUser] = useState("")
-
-  function onLogIn(loggedInUser) {
-    setCurrentUser(loggedInUser)
-  }
 
   useEffect(() => {
     fetch('/me')
@@ -21,6 +18,14 @@ function App() {
       })
   }, [])
 
+  function onLogIn(loggedInUser) {
+    setCurrentUser(loggedInUser)
+  }
+
+  function onLogOut(){
+    setCurrentUser(null)
+  }
+
   // const [count, setCount] = useState(0)
 
   // useEffect(() => {
@@ -31,12 +36,19 @@ function App() {
 
   return (
     <div className="App">
+      <NavBar 
+        currentUser={currentUser} 
+        onLogOut={onLogOut}
+      />
       <Switch>
-        <Route exact path="/sessions">
-          {/* <h1>Page Count: {count}</h1> */}
+        <Route exact path="/noodles">
+          <h1>Noodles</h1>
         </Route>
-        <Route exact path="/testing">
-          <h1>Test Route</h1>
+        <Route exact path="/reviews">
+          <h1>Reviews</h1>
+        </Route>
+        <Route exact path="/users">
+          <h1>Reviewers</h1>
         </Route>
         <Route exact path='/login'>
           <Login onLogIn={onLogIn}/>

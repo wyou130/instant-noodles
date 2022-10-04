@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   # Routes from setup guide
-  get '/hello', to: 'application#hello_world'
+  # get '/hello', to: 'application#hello_world'
 
   get '*path',
       to: 'fallback#index',

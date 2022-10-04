@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Login from './components/Login'
 import NavBar from './components/NavBar';
+import Signup from './components/Signup';
 
 function App() {
 
@@ -10,7 +11,7 @@ function App() {
 
   useEffect(() => {
     fetch('/me')
-      .then((res) => {
+      .then(res => {
         if(res.ok) {
           res.json()
           .then((user) => setCurrentUser(user))
@@ -52,6 +53,9 @@ function App() {
         </Route>
         <Route exact path='/login'>
           <Login onLogIn={onLogIn}/>
+        </Route>
+        <Route exact path='/signup'>
+          <Signup onLogIn={onLogIn}/>
         </Route>
       </Switch>
     </div>

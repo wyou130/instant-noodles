@@ -17,4 +17,8 @@ class ApplicationController < ActionController::API
         render json: { error: "Not authorized"}, status: :unauthorized unless @current_user 
     end
 
+    def invalid(invalid)
+        render json: { error: invalid.record.errors.full_messages }, status: :unprocessable_entity
+    end
+
 end

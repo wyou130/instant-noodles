@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get '/me', to: 'users#show'
 
   resources :reviews
-  resources :noodles
+  resources :noodles, only: [:index, :show, :create, :update]
   resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from "react-router-dom";
 // import { useHistory } from 'react-router-dom'
 
 function Login({ onLogIn }) {
@@ -59,6 +60,9 @@ function Login({ onLogIn }) {
                 {/* <input type="checkbox" onClick={showPassword}>Show Password</input> */}
                 <button type="submit">Log In</button>
             </form>
+            <div>
+                Don't have an account yet? <Link exact to='/signup'>Sign up now!</Link>
+            </div>
         </div>
     )
 }

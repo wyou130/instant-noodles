@@ -1,4 +1,4 @@
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function NavBar({ currentUser, onLogOut }) {
 
@@ -11,14 +11,14 @@ function NavBar({ currentUser, onLogOut }) {
 
     return (
         <div>
-            <NavLink exact to="/">Home</NavLink>
-            <NavLink exact to="/noodles">Noodles</NavLink>
-            <NavLink exact to="/reviews">Reviews</NavLink>
-            <NavLink exact to="/users">Reviewers</NavLink>
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/noodles">Noodles</NavLink>
+            <NavLink to="/reviews">Reviews</NavLink>
+            <NavLink to="/users">Reviewers</NavLink>
             { currentUser ? 
-                <NavLink exact to="/login" onClick={handleLogOut}>Log Out</NavLink>
+                <NavLink to="/login" onClick={handleLogOut}>Log Out</NavLink>
                 : 
-                <NavLink exact to="/login">Log In</NavLink>
+                <NavLink to="/login">Log In / Register</NavLink>
             }
         </div>
     )

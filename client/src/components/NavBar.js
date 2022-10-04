@@ -14,9 +14,11 @@ function NavBar({ currentUser, onLogOut }) {
             <NavLink to="/">Home</NavLink>
             <NavLink to="/noodles">Noodles</NavLink>
             <NavLink to="/reviews">Reviews</NavLink>
-            <NavLink to="/users">Reviewers</NavLink>
             { currentUser ? 
-                <NavLink to="/login" onClick={handleLogOut}>Log Out</NavLink>
+                <span>
+                    <NavLink to="/users">Reviewers</NavLink> 
+                    <NavLink to="/login" onClick={handleLogOut}>Log Out</NavLink>
+                </span>
                 : 
                 <NavLink to="/login">Log In / Register</NavLink>
             }

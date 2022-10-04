@@ -4,6 +4,8 @@ import { Switch, Route } from 'react-router-dom'
 import Login from './components/Login'
 import NavBar from './components/NavBar';
 import Signup from './components/Signup';
+import NoodlesList from './components/NoodlesList'
+import NoodleDetails from './components/NoodleDetails'
 
 function App() {
 
@@ -46,7 +48,10 @@ function App() {
           <h1>Home</h1>
         </Route>
         <Route exact path="/noodles">
-          <h1>Noodles</h1>
+          <NoodlesList/>
+        </Route>
+        <Route exact path="/noodles/:id">
+          <NoodleDetails/>
         </Route>
         <Route exact path="/reviews">
           <h1>Reviews</h1>

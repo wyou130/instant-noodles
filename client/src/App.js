@@ -42,6 +42,9 @@ function App() {
         onLogOut={onLogOut}
       />
       <Switch>
+        <Route exact path="/">
+          <h1>Home</h1>
+        </Route>
         <Route exact path="/noodles">
           <h1>Noodles</h1>
         </Route>

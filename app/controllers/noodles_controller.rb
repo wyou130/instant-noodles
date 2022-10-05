@@ -10,7 +10,7 @@ class NoodlesController < ApplicationController
     end
 
     def show
-        render json: Noodle.find(params[:id]), status: :ok
+        render json: Noodle.find(params[:id]), status: :ok, serializer: NoodleReviewsSerializer
     end
 
     def create

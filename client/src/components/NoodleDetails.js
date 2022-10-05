@@ -17,18 +17,23 @@ function NoodleDetails({ onSeeDetails, displayItem }) {
         })
     }, [id])
 
-    // console.log(displayItem)
+    // console.log(displayItem.reviews.map(review => review.overall_comment))
 
     return(
         <div>
             Individual Noodle Details 
             {displayItem ? 
                 <div>
-                    <p>{displayItem.brand} {displayItem.flavor}</p>
-                    <p>Birthplace: {displayItem.birthplace}</p> 
-                    <p>Style: {displayItem.style}</p>
+                    <div>
+                        <p>{displayItem.brand} {displayItem.flavor}</p>
+                        <p>Birthplace: {displayItem.birthplace}</p> 
+                        <p>Style: {displayItem.style}</p>
+                    </div>
+                    <div>
+                        <p>{displayItem.reviews.map(review => review.overall_comment)}</p>
+                    </div>
                 </div>
-                : 
+                    : 
                 <p>Loading...</p>}
         </div>
     )

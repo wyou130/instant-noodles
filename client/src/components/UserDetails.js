@@ -2,35 +2,33 @@ import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import ReviewItem from './ReviewItem'
 
-function NoodleDetails({ onSeeDetails, displayItem }) {
+function UserDetails({ onSeeDetails, displayItem }) {
 
     let { id } = useParams()
 
     // console.log(id)
 
     useEffect(() => {
-        fetch(`/noodles/${id}`)
+        fetch(`/users/${id}`)
         .then(res => {
             if(res.ok) {
                 res.json()
-                .then(oneNoodle => onSeeDetails(oneNoodle))
+                .then(oneUser => onSeeDetails(oneUser))
             }
         })
     }, [id])
 
-    // console.log(displayItem.reviews.map(review => review.overall_comment))
-
     return(
         <div>
-            Individual Noodle Details 
+            User Profile
             {displayItem ? 
                 <div>
                     <div>
-                        <h3>{displayItem.brand} {displayItem.flavor}</h3>
-                        <p>Birthplace: {displayItem.birthplace}</p> 
-                        <p>Style: {displayItem.style}</p>
+                        <h3>{displayItem.name}</h3>
+                        <p>From: {displayItem.location}</p> 
                     </div>
                     <div>
+                        <h3>All {displayItem.name}'s Reviews</h3>
                         <div>
                             {displayItem.reviews.map(review => <ReviewItem key={review.id} review={review}/>)}
                         </div>
@@ -42,4 +40,4 @@ function NoodleDetails({ onSeeDetails, displayItem }) {
     )
 }
 
-export default NoodleDetails
+export default UserDetails

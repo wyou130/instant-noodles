@@ -6,6 +6,7 @@ import NavBar from './components/NavBar';
 import Signup from './components/Signup';
 import NoodlesList from './components/NoodlesList'
 import NoodleDetails from './components/NoodleDetails'
+import ReviewsList from './components/ReviewsList';
 
 function App() {
 
@@ -59,7 +60,7 @@ function App() {
           <NoodleDetails onSeeDetails={onSeeDetails} displayItem={displayItem}/>
         </Route>
         <Route exact path="/reviews">
-          <h1>Reviews</h1>
+          <ReviewsList/>
         </Route>
         <Route exact path="/users">
           <h1>Reviewers</h1>

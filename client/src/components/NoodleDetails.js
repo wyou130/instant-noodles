@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import ReviewItem from './ReviewItem'
 
 function NoodleDetails({ onSeeDetails, displayItem }) {
 
@@ -30,7 +31,7 @@ function NoodleDetails({ onSeeDetails, displayItem }) {
                         <p>Style: {displayItem.style}</p>
                     </div>
                     <div>
-                        <p>{displayItem.reviews.map(review => review.overall_comment)}</p>
+                        <div>{displayItem.reviews.map(review => <ReviewItem key={review.id} review={review}/>)}</div>
                     </div>
                 </div>
                     : 

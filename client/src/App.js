@@ -10,6 +10,7 @@ import NoodleDetails from './components/NoodleDetails'
 function App() {
 
   const [currentUser, setCurrentUser] = useState("")
+  const [displayItem, setDisplayItem] = useState(null)
 
   useEffect(() => {
     fetch('/me')
@@ -27,6 +28,10 @@ function App() {
 
   function onLogOut(){
     setCurrentUser(null)
+  }
+
+  function onSeeDetails(individual) {
+    setDisplayItem(individual)
   }
 
   // const [count, setCount] = useState(0)
@@ -51,7 +56,7 @@ function App() {
           <NoodlesList/>
         </Route>
         <Route exact path="/noodles/:id">
-          <NoodleDetails/>
+          <NoodleDetails onSeeDetails={onSeeDetails} displayItem={displayItem}/>
         </Route>
         <Route exact path="/reviews">
           <h1>Reviews</h1>

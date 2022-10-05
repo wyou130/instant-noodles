@@ -17,7 +17,7 @@ function NoodlesList() {
                 Noodles
             </h1>
             <div>
-                {noodleList.map(noodle => <NoodleItem noodle={noodle}/>)}
+                {noodleList.map(noodle => <NoodleItem key={noodle.id} noodle={noodle}/>)}
             </div>
         </div>
     )

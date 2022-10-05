@@ -5,6 +5,7 @@ function NoodleItem({ noodle }) {
         <div>
             <Link to={`/noodles/${noodle.id}`}>
                 <h3>{noodle.brand} {noodle.flavor}</h3>
+                {/* <img alt="instant noodle" src={noodle.image}/> */}
             </Link>
         </div>
     )

@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     def show
         # using same action for different route 
         if params[:id]
-            render json: User.find(params[:id]), status: :ok
+            render json: User.find(params[:id]), status: :ok, serializer: UserReviewsSerializer
         else
             render json: @current_user, status: :ok
         end

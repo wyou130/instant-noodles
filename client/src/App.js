@@ -7,6 +7,8 @@ import Signup from './components/Signup';
 import NoodlesList from './components/NoodlesList'
 import NoodleDetails from './components/NoodleDetails'
 import ReviewsList from './components/ReviewsList';
+import UsersList from './components/UsersList';
+import UserDetails from './components/UserDetails';
 
 function App() {
 
@@ -63,7 +65,10 @@ function App() {
           <ReviewsList/>
         </Route>
         <Route exact path="/users">
-          <h1>Reviewers</h1>
+          <UsersList/>
+        </Route>
+        <Route exact path="/users/:id">
+          <UserDetails onSeeDetails={onSeeDetails} displayItem={displayItem}/>
         </Route>
         <Route exact path='/login'>
           <Login onLogIn={onLogIn}/>

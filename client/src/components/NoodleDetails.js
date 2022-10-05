@@ -1,10 +1,14 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import ReviewForm from './ReviewForm'
 import ReviewItem from './ReviewItem'
 
-function NoodleDetails({ onSeeDetails, displayItem }) {
+function NoodleDetails({ onSeeDetails, displayItem, currentUser }) {
 
     let { id } = useParams()
+
+    const [formShowing, setFormShowing] = useState(false)
+    const [currentReviews, setCurrentReviews] = useState([])
 
     // console.log(id)
 
@@ -13,12 +17,21 @@ function NoodleDetails({ onSeeDetails, displayItem }) {
         .then(res => {
             if(res.ok) {
                 res.json()
-                .then(oneNoodle => onSeeDetails(oneNoodle))
+                .then(oneNoodle => {
+                    onSeeDetails(oneNoodle)
+                    setCurrentReviews(oneNoodle.reviews)
+                })
             }
         })
     }, [id])
 
-    // console.log(displayItem.reviews.map(review => review.overall_comment))
+    function toggleForm() {
+        setFormShowing(!formShowing)
+    }
+
+    function onSubmitNewReview(newReview) {
+        setCurrentReviews([...currentReviews, newReview])
+    }
 
     return(
         <div>
@@ -27,10 +40,14 @@ function NoodleDetails({ onSeeDetails, displayItem }) {
                 <div>
                     <div>
                         <h3>{displayItem.brand} {displayItem.flavor}</h3>
+                        <p>Average Review: {"⭐️".repeat(displayItem.average_reviews)}</p> 
                         <p>Birthplace: {displayItem.birthplace}</p> 
                         <p>Style: {displayItem.style}</p>
                     </div>
                     <div>
+                        <button onClick={toggleForm}>{formShowing ? "Cancel" : "Add Review"}</button>
+                        {formShowing ? <ReviewForm currentUser={currentUser} displayItem={displayItem} onSubmitNewReview={onSubmitNewReview}/> : null}
+                        <h3>Reviews for {displayItem.brand} {displayItem.flavor}</h3>
                         <div>
                             {displayItem.reviews.map(review => <ReviewItem key={review.id} review={review}/>)}
                         </div>

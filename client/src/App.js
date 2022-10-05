@@ -59,7 +59,7 @@ function App() {
           <NoodlesList/>
         </Route>
         <Route exact path="/noodles/:id">
-          <NoodleDetails onSeeDetails={onSeeDetails} displayItem={displayItem}/>
+          <NoodleDetails onSeeDetails={onSeeDetails} displayItem={displayItem} currentUser={currentUser}/>
         </Route>
         <Route exact path="/reviews">
           <ReviewsList/>

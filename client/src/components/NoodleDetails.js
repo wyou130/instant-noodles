@@ -36,21 +36,38 @@ function NoodleDetails({ onSeeDetails, displayItem, currentUser }) {
 
     return(
         <div>
-            Individual Noodle Details 
             {displayItem ? 
                 <div>
-                    <div>
-                        <h3>{displayItem.brand} {displayItem.flavor}</h3>
-                        <p>Average Review: {"⭐️".repeat(displayItem.average_reviews)}</p> 
-                        <p>Birthplace: {displayItem.birthplace}</p> 
-                        <p>Style: {displayItem.style}</p>
+                    <div className='card mb-3 mx-auto'>
+                        <div className='row no-gutters flexCont'>
+                            <div className="col-md-4">
+                                <img
+                                src={displayItem.image}
+                                class="card-img my-5 mx-5"
+                                alt="Instant noodle"
+                                ></img>
+                            </div>
+                            <div className='col-md-8'>
+                                <h3 className='card-title my-5'>{displayItem.brand} {displayItem.flavor}</h3>
+                                <p>Average Review: {"⭐️".repeat(displayItem.average_reviews)}</p> 
+                                <p>Birthplace: {displayItem.birthplace}</p> 
+                                <p>Style: {displayItem.style}</p>
+                            </div>
+                        </div>
                     </div>
                     <div>
-                        <button onClick={toggleForm}>{formShowing ? "Cancel" : "Add Review"}</button>
-                        {formShowing ? <ReviewForm currentUser={currentUser} displayItem={displayItem} onSubmitNewReview={onSubmitNewReview}/> : null}
-                        <h3>Reviews for {displayItem.brand} {displayItem.flavor}</h3>
                         <div>
-                            {currentReviews.map(review => <ReviewItem key={review.id} review={review}/>)}
+                            <button onClick={toggleForm}>{formShowing ? "Cancel" : "Add Review"}</button>
+                            {formShowing ? <ReviewForm currentUser={currentUser} displayItem={displayItem} onSubmitNewReview={onSubmitNewReview}/> : null}
+                        </div>
+                        <br/>
+                        <div>
+                            <h3>Reviews for {displayItem.brand} {displayItem.flavor} &#40;{displayItem.total_reviews}&#41;</h3>
+                            <div className="container-fluid">
+                                <div className="row">
+                                    {currentReviews.map(review => <ReviewItem key={review.id} review={review}/>)}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

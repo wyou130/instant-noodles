@@ -17,7 +17,17 @@
   color: #61dafb;
 }
 
-.image_grid{
+.card-img {
+  object-fit: cover;
+  width: 100%;
+  height: 350px;
+}
+
+.review-card {
+  height: 350px;
+}
+
+/* .image_grid{
   --gap: 16px;
   --num-cols: 3;
   --row-height: 400px;
@@ -39,6 +49,6 @@
   padding: 1px;
   border-color: rgb(79, 18, 0);
   border-width: 5px;
-}
+} */
 
 /* For rating stars */

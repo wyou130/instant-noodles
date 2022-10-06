@@ -5,4 +5,6 @@ class NoodleSerializer < ActiveModel::Serializer
     object.reviews.average(:overall_rating)
   end
 
+  
+
 end

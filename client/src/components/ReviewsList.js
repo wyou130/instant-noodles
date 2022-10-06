@@ -16,8 +16,10 @@ function ReviewsList() {
             <h1>
                Reviews
             </h1>
-            <div>
-                {reviewsList.map(review => <ReviewItem key={review.id} review={review}/>)}
+            <div className="container-fluid">
+                <div className="row">
+                    {reviewsList.map(review => <ReviewItem key={review.id} review={review}/>)}
+                </div>
             </div>
         </div>
     )

@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-// import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 function Login({ onLogIn }) {
 
+    let history = useHistory()
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    // let history = useHistory()
 
     // function showPassword(password) {
     //     if (password.type === "password") {
@@ -31,8 +31,10 @@ function Login({ onLogIn }) {
             body: JSON.stringify(loginInput)
         })
             .then(res => res.json())
-            .then(loggedInUser => onLogIn(loggedInUser))
-        // history.push('/')
+            .then(loggedInUser => {
+                onLogIn(loggedInUser)
+                history.push('/')
+            })
         setEmail("")
         setPassword("")
     }

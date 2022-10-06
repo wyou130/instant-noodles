@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useParams, useHistory, Link } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import ReviewItem from './ReviewItem'
 
 function UserDetails({ onSeeDetails, displayItem, currentUser, onDeleteUser, onEditUser }) {
@@ -43,12 +43,10 @@ function UserDetails({ onSeeDetails, displayItem, currentUser, onDeleteUser, onE
             .then(res => {
                 if(res.ok) {
                     res.json()
-                    // .then(updatedUser => console.log(updatedUser))
                     .then((updatedUser) => onEditUser(updatedUser)) 
                     .then(handleUserEdit)
-                    // history.push(`/users/${currentUser.id}`)
-                    // window.location.reload()
                 }
+                alert('Profile successfully updated!')
             })
     }
     
@@ -102,7 +100,7 @@ function UserDetails({ onSeeDetails, displayItem, currentUser, onDeleteUser, onE
                                 <p>From: {displayItem.location}</p>
                             </div>
                         }
-                        {displayItem.id === currentUser.id ? <div>
+                        {displayItem.id === currentUser.id && !isEditing ? <div>
                         <button onClick={() => handleUserEdit(currentUser)}>Edit Profile</button>
                         <button onClick={() => handleUserDelete(currentUser)}>Delete Account</button>
                         </div> : null}

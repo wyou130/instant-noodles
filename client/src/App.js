@@ -1,6 +1,7 @@
 import './App.css';
 import { useState, useEffect } from 'react'
 import { Switch, Route } from 'react-router-dom'
+import Home from './components/Home';
 import Login from './components/Login'
 import NavBar from './components/NavBar';
 import Signup from './components/Signup';
@@ -55,28 +56,28 @@ function App() {
   // }, []);
 
   return (
-    <div className="App">
+    <div className='App'>
       <NavBar 
         currentUser={currentUser} 
         onLogOut={onLogOut}
       />
       <Switch>
-        <Route exact path="/">
-          <h1>Home</h1>
+        <Route exact path='/'>
+          <Home currentUser={currentUser}/>
         </Route>
-        <Route exact path="/noodles">
+        <Route exact path='/noodles'>
           <NoodlesList/>
         </Route>
-        <Route exact path="/noodles/:id">
+        <Route exact path='/noodles/:id'>
           <NoodleDetails onSeeDetails={onSeeDetails} displayItem={displayItem} currentUser={currentUser}/>
         </Route>
-        <Route exact path="/reviews">
+        <Route exact path='/reviews'>
           <ReviewsList/>
         </Route>
-        <Route exact path="/users">
+        <Route exact path='/users'>
           <UsersList/>
         </Route>
-        <Route exact path="/users/:id">
+        <Route exact path='/users/:id'>
           <UserDetails onSeeDetails={onSeeDetails} displayItem={displayItem} currentUser={currentUser} onDeleteUser={onDeleteUser} onEditUser={onEditUser}/>
         </Route>
         <Route exact path='/login'>

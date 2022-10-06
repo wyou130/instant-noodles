@@ -8,10 +8,6 @@ function UserItem({ user }) {
                 <p>From: {user.location}</p>
                 <p>{user.number_of_reviews} Reviews</p>
                 <p>See {user.name}'s Full Profile & Reviews</p>
-                {/* will move map of ReviewItem to UserDetails so can see all reviews only in the profile, will only render full review in the user#show route  */}
-                {/* <div> */}
-                    {/* <div>{user.reviews.map(review => <ReviewItem key={review.id} review={review}/>)}</div> */}
-                {/* </div> */}
             </Link>
         </div>
     )

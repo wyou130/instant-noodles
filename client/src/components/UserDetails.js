@@ -97,10 +97,15 @@ function UserDetails({ onSeeDetails, displayItem, currentUser, onDeleteUser, onE
                             </form>
                             :
                             <div>
+                                <img alt="me" src={displayItem.image}/>
                                 <h3>{displayItem.name}</h3>
                                 <p>From: {displayItem.location}</p>
                             </div>
                         }
+                        {displayItem.id === currentUser.id ? <div>
+                        <button onClick={() => handleUserEdit(currentUser)}>Edit Profile</button>
+                        <button onClick={() => handleUserDelete(currentUser)}>Delete Account</button>
+                        </div> : null}
                     </div>
                     <div>
                         <h3>All {displayItem.name}'s Reviews</h3>
@@ -112,10 +117,6 @@ function UserDetails({ onSeeDetails, displayItem, currentUser, onDeleteUser, onE
                             }
                         </div>
                     </div>
-                    {displayItem.id === currentUser.id ? <div>
-                        <button onClick={() => handleUserEdit(currentUser)}>Edit Profile</button>
-                        <button onClick={() => handleUserDelete(currentUser)}>Delete Account</button>
-                    </div> : null}
                 </div>
                     : 
                 <p>Loading...</p>}

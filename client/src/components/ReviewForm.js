@@ -142,7 +142,7 @@ function ReviewForm({ currentUser, displayItem, onSubmitNewReview }) {
                     onChange={e => setOverallComment(e.target.value)}
                 />
                 <br/>
-                <button type="submit">Submit Review</button>
+                <button type="submit">Add Review</button>
             </form>
         </div>
     )

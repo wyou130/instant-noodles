@@ -49,7 +49,7 @@ function NoodleDetails({ onSeeDetails, displayItem, currentUser }) {
                         {formShowing ? <ReviewForm currentUser={currentUser} displayItem={displayItem} onSubmitNewReview={onSubmitNewReview}/> : null}
                         <h3>Reviews for {displayItem.brand} {displayItem.flavor}</h3>
                         <div>
-                            {displayItem.reviews.map(review => <ReviewItem key={review.id} review={review}/>)}
+                            {currentReviews.map(review => <ReviewItem key={review.id} review={review}/>)}
                         </div>
                     </div>
                 </div>

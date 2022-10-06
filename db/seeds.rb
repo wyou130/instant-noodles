@@ -10,6 +10,7 @@
 puts "Seeding users..."
 naijia = User.create(name: "NinjaH", location: "NY", password: "iLuvN00dl3z", email: "huang.naijia@gmail.com")
 wendy = User.create(name: "WendayY", location: "NY", password: "iLuvN00dl3z2", email: "wyou130@gmail.com")
+ethan = User.create(name: "EshanB", location: "NY", password: "iH8N00dl3z", email: "ebb0202@aol.com")
 
 # Noodles
 puts "Seeding noodles..."

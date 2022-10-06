@@ -17,7 +17,7 @@ function UsersList() {
                Reviewers
             </h1>
             <div>
-                {usersList.map(user => <UserItem key={user.id} user={user}/>)}
+                {usersList.length > 0 ? usersList.map(user => <UserItem key={user.id} user={user}/>) : null}
             </div>
         </div>
     )

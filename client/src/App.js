@@ -12,7 +12,7 @@ import UserDetails from './components/UserDetails';
 
 function App() {
 
-  const [currentUser, setCurrentUser] = useState("")
+  const [currentUser, setCurrentUser] = useState(null)
   const [displayItem, setDisplayItem] = useState(null)
 
   useEffect(() => {
@@ -35,6 +35,11 @@ function App() {
 
   function onSeeDetails(individual) {
     setDisplayItem(individual)
+  }
+
+  function onDeleteUser() {
+      setCurrentUser(null)
+      setDisplayItem(null)
   }
 
   // const [count, setCount] = useState(0)
@@ -68,7 +73,7 @@ function App() {
           <UsersList/>
         </Route>
         <Route exact path="/users/:id">
-          <UserDetails onSeeDetails={onSeeDetails} displayItem={displayItem}/>
+          <UserDetails onSeeDetails={onSeeDetails} displayItem={displayItem} currentUser={currentUser} onDeleteUser={onDeleteUser}/>
         </Route>
         <Route exact path='/login'>
           <Login onLogIn={onLogIn}/>

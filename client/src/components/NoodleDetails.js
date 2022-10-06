@@ -31,6 +31,7 @@ function NoodleDetails({ onSeeDetails, displayItem, currentUser }) {
 
     function onSubmitNewReview(newReview) {
         setCurrentReviews([...currentReviews, newReview])
+        toggleForm()
     }
 
     return(

@@ -30,6 +30,7 @@ function NoodleForm({ onSubmitNewNoodle }) {
                     res.json()
                     .then(newNoodle => onSubmitNewNoodle(newNoodle))
                 }
+                alert('Noodle successfully added!')
             })
         setBrand("")
         setFlavor("")

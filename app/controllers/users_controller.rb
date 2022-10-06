@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
-    skip_before_action :authenticated_user, only: [:create]
+    skip_before_action :authenticated_user, only: [:create, :show]
+    before_action :authorize, only: [:update, :destroy]
 
     rescue_from ActiveRecord::RecordInvalid, with: :invalid
     rescue_from ActiveRecord::RecordNotFound, with: :not_found
@@ -42,6 +43,10 @@ class UsersController < ApplicationController
 
     def not_found
         render json: { error: "User not found" }, status: :not_found
+    end
+
+    def authorize
+        return render json: { error: "Not authorized" }, status: :unauthorized unless session[:user_id] == @current_user.id 
     end
 
 end

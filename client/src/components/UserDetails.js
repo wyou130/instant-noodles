@@ -1,12 +1,11 @@
 import { useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import ReviewItem from './ReviewItem'
 
-function UserDetails({ onSeeDetails, displayItem }) {
+function UserDetails({ onSeeDetails, displayItem, currentUser, onDeleteUser }) {
 
     let { id } = useParams()
-
-    // console.log(id)
+    let history = useHistory()
 
     useEffect(() => {
         fetch(`/users/${id}`)
@@ -17,6 +16,18 @@ function UserDetails({ onSeeDetails, displayItem }) {
             }
         })
     }, [id])
+    
+    function handleUserDelete(currentUser) {
+        if(window.confirm('Are you sure you want to delete your account?')) {
+            fetch(`/users/${currentUser.id}`, {
+                method: 'DELETE'
+              })
+              .then(() => {
+                  onDeleteUser(currentUser)
+                  history.push('/login')
+              })
+        } 
+    }
 
     return(
         <div>
@@ -33,6 +44,10 @@ function UserDetails({ onSeeDetails, displayItem }) {
                             {displayItem.reviews.map(review => <ReviewItem key={review.id} review={review}/>)}
                         </div>
                     </div>
+                    {displayItem.id === currentUser.id ? <div>
+                        <button>Edit Profile</button>
+                        <button onClick={() => handleUserDelete(currentUser)}>Delete Account</button>
+                    </div> : null}
                 </div>
                     : 
                 <p>Loading...</p>}

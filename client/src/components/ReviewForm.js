@@ -25,7 +25,7 @@ function ReviewForm({ currentUser, displayItem, onSubmitNewReview }) {
             user_id: currentUser.id,
             noodle_id: displayItem.id
         }
-        // console.log(reviewInput)
+        console.log(currentUser.id)
         fetch('/reviews', {
             method: 'POST',
             headers: {
@@ -39,6 +39,14 @@ function ReviewForm({ currentUser, displayItem, onSubmitNewReview }) {
                     .then(newReview => onSubmitNewReview(newReview))
                 }
             })
+        setNoodleRating("")
+        setNoodleComment("")
+        setToppingsRating("")
+        setToppingsComment("")
+        setSpiceRating("")
+        setSpiceComment("")
+        setOverallRating("")
+        setOverallComment("")
     }
 
     return(

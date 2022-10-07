@@ -60,89 +60,116 @@ function ReviewForm({ currentUser, displayItem, onSubmitNewReview }) {
                     <option value="4" label="4"></option>
                     <option value="5" label="5"></option>
                 </datalist>
-                <label htmlFor="noodleRating">Noodle Rating</label>
-                <input  
-                    className='rating'
-                    type="range" 
-                    min="0"
-                    max="5"
-                    step="0.5"
-                    list="tickmarks"
-                    name="noodleRating" 
-                    value={noodleRating}
-                    onChange={e => setNoodleRating(e.target.value)}
-                />
-                <label htmlFor="noodleComment">Noodle Comment</label>
-                <input
-                    type="text" 
-                    name="noodleComment" 
-                    value={noodleComment}
-                    onChange={e => setNoodleComment(e.target.value)}
-                />
+                <div className='form-group row mx-5 my-2'>
+                    <label className='col-sm-2 col-form-label' htmlFor="noodleRating">Noodle Rating</label>
+                    <div className='col-sm-2'>
+                        <input  
+                            type="range" 
+                            min="0"
+                            max="5"
+                            step="0.5"
+                            list="tickmarks"
+                            name="noodleRating" 
+                            value={noodleRating}
+                            onChange={e => setNoodleRating(e.target.value)}
+                        />
+                    </div>
+                    <label className='col-sm-2 col-form-label' htmlFor="noodleComment">Noodle Comment</label>
+                    <div className='col-sm-6'>
+                        <input
+                            className='form-control'
+                            type="text" 
+                            name="noodleComment" 
+                            value={noodleComment}
+                            onChange={e => setNoodleComment(e.target.value)}
+                        />
+                    </div>
+                </div>
                 <br/>
-                <label htmlFor="toppingsRating">Toppings Rating</label>
-                <input  
-                    className='rating'
-                    type="range" 
-                    min="0"
-                    max="5"
-                    step="0.5"
-                    list="tickmarks"
-                    name="toppingsRating" 
-                    value={toppingsRating}
-                    onChange={e => setToppingsRating(e.target.value)}
-                />
-                <label htmlFor="toppingsComment">Toppings Comment</label>
-                <input
-                    type="text" 
-                    name="toppingsComment" 
-                    value={toppingsComment}
-                    onChange={e => setToppingsComment(e.target.value)}
-                />
+                <div className='form-group row mx-5 my-2'>
+                    <label className='col-sm-2 col-form-label' htmlFor="toppingsRating">Toppings Rating</label>
+                    <div className='col-sm-2'>
+                        <input  
+                            className='rating'
+                            type="range" 
+                            min="0"
+                            max="5"
+                            step="0.5"
+                            list="tickmarks"
+                            name="toppingsRating" 
+                            value={toppingsRating}
+                            onChange={e => setToppingsRating(e.target.value)}
+                        />
+                    </div>
+                    <label className='col-sm-2 col-form-label' htmlFor="toppingsComment">Toppings Comment</label>
+                    <div className='col-sm-6'>
+                        <input
+                            className='form-control'
+                            type="text" 
+                            name="toppingsComment" 
+                            value={toppingsComment}
+                            onChange={e => setToppingsComment(e.target.value)}
+                        />
+                    </div>
+                </div>
                 <br/>
-                <label htmlFor="spiceRating">Spice Rating</label>
-                <input  
-                    className='rating'
-                    type="range" 
-                    min="0"
-                    max="5"
-                    step="0.5"
-                    list="tickmarks"
-                    name="spiceRating" 
-                    value={spiceRating}
-                    onChange={e => setSpiceRating(e.target.value)}
-                />
-                <label htmlFor="spiceComment">Spice Comment</label>
-                <input
-                    type="text" 
-                    name="spiceComment" 
-                    value={spiceComment}
-                    onChange={e => setSpiceComment(e.target.value)}
-                />
+                <div className='form-group row mx-5 my-2'>
+                    <label className='col-sm-2 col-form-label' htmlFor="spiceRating">Spice Rating</label>
+                    <div className='col-sm-2'>
+                        <input  
+                            className='rating'
+                            type="range" 
+                            min="0"
+                            max="5"
+                            step="0.5"
+                            list="tickmarks"
+                            name="spiceRating" 
+                            value={spiceRating}
+                            onChange={e => setSpiceRating(e.target.value)}
+                        />
+                    </div>
+                    <label className='col-sm-2 col-form-label' htmlFor="spiceComment">Spice Comment</label>
+                    <div className='col-sm-6'>
+                        <input
+                            className='form-control'
+                            type="text" 
+                            name="spiceComment" 
+                            value={spiceComment}
+                            onChange={e => setSpiceComment(e.target.value)}
+                        />
+                    </div>
+                </div>
                 <br/>
-                <label htmlFor="overallRating">Overall Rating</label>
-                <input  
-                    required 
-                    className='rating'
-                    type="range" 
-                    min="0"
-                    max="5"
-                    step="0.5"
-                    list="tickmarks"
-                    name="overallRating" 
-                    value={overallRating}
-                    onChange={e => setOverallRating(e.target.value)}
-                />
-                <label htmlFor="overallComment">Overall Comment</label>
-                <input 
-                    required
-                    type="text" 
-                    name="overallComment" 
-                    value={overallComment}
-                    onChange={e => setOverallComment(e.target.value)}
-                />
+                <div className='form-group row mx-5 my-2'>
+                    <label className='col-sm-2 col-form-label' htmlFor="overallRating">Overall Rating</label>
+                    <div className='col-sm-2'>
+                        <input  
+                            required 
+                            className='rating'
+                            type="range" 
+                            min="0"
+                            max="5"
+                            step="0.5"
+                            list="tickmarks"
+                            name="overallRating" 
+                            value={overallRating}
+                            onChange={e => setOverallRating(e.target.value)}
+                        />
+                    </div>
+                    <label className='col-sm-2 col-form-label' htmlFor="overallComment">Overall Comment</label>
+                    <div className='col-sm-6'>
+                        <input 
+                            className='form-control'
+                            required
+                            type="text" 
+                            name="overallComment" 
+                            value={overallComment}
+                            onChange={e => setOverallComment(e.target.value)}
+                        />
+                    </div>
+                </div>
                 <br/>
-                <button type="submit">Add Review</button>
+                <button className='btn btn-secondary' type="submit">Add Review</button>
             </form>
         </div>
     )

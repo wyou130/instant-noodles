@@ -38,9 +38,9 @@ function App() {
     setDisplayItem(individual)
   }
 
-  function onEditUser(updatedUser) {
-    setDisplayItem(updatedUser)
-  }
+  // function onEditUser(updatedUser) {
+  //   setDisplayItem(updatedUser)
+  // }
 
   function onDeleteUser() {
       setCurrentUser(null)
@@ -78,7 +78,9 @@ function App() {
           <UsersList/>
         </Route>
         <Route exact path='/users/:id'>
-          <UserDetails onSeeDetails={onSeeDetails} displayItem={displayItem} currentUser={currentUser} onDeleteUser={onDeleteUser} onEditUser={onEditUser}/>
+          <UserDetails onSeeDetails={onSeeDetails} displayItem={displayItem} currentUser={currentUser} onDeleteUser={onDeleteUser} 
+          // onEditUser={onEditUser}
+          />
         </Route>
         <Route exact path='/login'>
           <Login onLogIn={onLogIn}/>

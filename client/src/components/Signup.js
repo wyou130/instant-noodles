@@ -44,49 +44,74 @@ function Signup({ onLogIn }) {
 
     return (
         <div>
-            <p>Create an Account</p>
+            <h1>Create an Account</h1>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="name">Username</label>
-                <input 
-                    required 
-                    type="text" 
-                    name="name" 
-                    value={name}
-                    onChange={e => setName(e.target.value)}
-                />
-                <label htmlFor="email">Email</label>
-                <input 
-                    required 
-                    type="text" 
-                    name="email" 
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
-                />
-                <label htmlFor="password">Password</label>
-                <input 
-                    required 
-                    type="password" 
-                    name="password" 
-                    value={password}
-                    onChange={e => setPassword(e.target.value)}
-                />
-                <label htmlFor="location">Location</label>
-                <input 
-                    required 
-                    type="text" 
-                    name="location" 
-                    value={location}
-                    onChange={e => setLocation(e.target.value)}
-                />
-                <label htmlFor="image">Profile Picture</label>
-                <input 
-                    required 
-                    type="text" 
-                    name="image" 
-                    value={image}
-                    onChange={e => setImage(e.target.value)}
-                />
-                <button type="submit">Create Account</button>
+                <div className='form-group row mx-5 my-2'>
+                    <label className='col-sm-2 col-form-label' htmlFor="name">Username</label>
+                    <div className='col-sm-8'>
+                        <input 
+                            className='form-control'
+                            required 
+                            type="text" 
+                            name="name" 
+                            value={name}
+                            onChange={e => setName(e.target.value)}
+                        />
+                    </div>
+                </div>
+                <div className='form-group row mx-5 my-2'>
+                    <label className='col-sm-2 col-form-label' htmlFor="email">Email</label>
+                    <div className='col-sm-8'>
+                        <input 
+                            className='form-control'
+                            required 
+                            type="text" 
+                            name="email" 
+                            value={email}
+                            onChange={e => setEmail(e.target.value)}
+                        />
+                    </div>
+                </div>
+                <div className='form-group row mx-5 my-2'>
+                    <label className='col-sm-2 col-form-label' htmlFor="password">Password</label>
+                    <div className='col-sm-8'>
+                        <input 
+                            className='form-control'
+                            required 
+                            type="password" 
+                            name="password" 
+                            value={password}
+                            onChange={e => setPassword(e.target.value)}
+                        />
+                    </div>
+                </div>
+                <div className='form-group row mx-5 my-2'>
+                    <label className='col-sm-2 col-form-label' htmlFor="location">Location</label>
+                    <div className='col-sm-8'>
+                        <input 
+                            className='form-control'
+                            required 
+                            type="text" 
+                            name="location" 
+                            value={location}
+                            onChange={e => setLocation(e.target.value)}
+                        />
+                    </div>
+                </div>
+                <div className='form-group row mx-5 my-2'>
+                    <label className='col-sm-2 col-form-label' htmlFor="image">Profile Picture</label>
+                    <div className='col-sm-8'>
+                        <input 
+                            className='form-control'
+                            required 
+                            type="text" 
+                            name="image" 
+                            value={image}
+                            onChange={e => setImage(e.target.value)}
+                        />
+                    </div>
+                </div>
+                <button className='btn btn-secondary' type="submit">Create Account</button>
             </form>
         </div>
     )

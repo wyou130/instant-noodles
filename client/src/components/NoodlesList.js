@@ -27,10 +27,12 @@ function NoodlesList() {
             <h1>
                 Noodles
             </h1>
+            <br/>
             <div>
-                <button onClick={toggleForm}>{formShowing ? "Cancel" : "Add Noodle"}</button>
+                <button className='btn btn-secondary' onClick={toggleForm}>{formShowing ? "Cancel" : "Add Noodle"}</button>
                 {formShowing ? <NoodleForm onSubmitNewNoodle={onSubmitNewNoodle}/> : null}
             </div>
+            <br/>
             <div className="container-fluid">
                 <div className="row">
                     {noodleList.map(noodle => <NoodleItem key={noodle.id} noodle={noodle}/>)}

@@ -13,7 +13,7 @@ function NavBar({ currentUser, onLogOut }) {
         <nav className="navbar navbar-expand-lg bg-light">
             <div className="container-fluid">
                 <Link className="navbar-brand" exact="true" to="/">
-                    🍜 Instant Noodles
+                    🍜 Instant Reviewdle
                 </Link>
                 {/* <button
                     className="navbar-toggler"

@@ -31,6 +31,7 @@ function NoodleDetails({ onSeeDetails, displayItem, currentUser }) {
 
     function onSubmitNewReview(newReview) {
         setCurrentReviews([...currentReviews, newReview])
+        onSeeDetails(displayItem)
         toggleForm()
     }
 
@@ -42,9 +43,9 @@ function NoodleDetails({ onSeeDetails, displayItem, currentUser }) {
                         <div className='row no-gutters flexCont'>
                             <div className="col-md-4">
                                 <img
-                                src={displayItem.image}
-                                class="card-img my-5 mx-5"
-                                alt="Instant noodle"
+                                    src={displayItem.image}
+                                    className="card-img my-5 mx-5"
+                                    alt="Instant noodle"
                                 ></img>
                             </div>
                             <div className='col-md-8'>
@@ -55,18 +56,20 @@ function NoodleDetails({ onSeeDetails, displayItem, currentUser }) {
                             </div>
                         </div>
                     </div>
+                    <br/>
                     <div>
                         <div>
-                            <button onClick={toggleForm}>{formShowing ? "Cancel" : "Add Review"}</button>
-                            {formShowing ? <ReviewForm currentUser={currentUser} displayItem={displayItem} onSubmitNewReview={onSubmitNewReview}/> : null}
+                            <h3>Reviews for {displayItem.brand} {displayItem.flavor} &#40;{displayItem.total_reviews}&#41;</h3>
                         </div>
                         <br/>
                         <div>
-                            <h3>Reviews for {displayItem.brand} {displayItem.flavor} &#40;{displayItem.total_reviews}&#41;</h3>
-                            <div className="container-fluid">
-                                <div className="row">
-                                    {currentReviews.map(review => <ReviewItem key={review.id} review={review}/>)}
-                                </div>
+                            <button className='btn btn-secondary' onClick={toggleForm}>{formShowing ? "Cancel" : "Add Review"}</button>
+                            {formShowing ? <ReviewForm currentUser={currentUser} displayItem={displayItem} onSubmitNewReview={onSubmitNewReview}/> : null}
+                        </div>
+                        <br/>
+                        <div className="container-fluid">
+                            <div className="row">
+                                {currentReviews.map(review => <ReviewItem key={review.id} review={review}/>)}
                             </div>
                         </div>
                     </div>

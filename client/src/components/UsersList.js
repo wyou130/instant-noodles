@@ -16,8 +16,10 @@ function UsersList() {
             <h1>
                Reviewers
             </h1>
-            <div>
-                {usersList.length > 0 ? usersList.map(user => <UserItem key={user.id} user={user}/>) : null}
+            <div className="container-fluid">
+                <div className="row">
+                    {usersList.length > 0 ? usersList.map(user => <UserItem key={user.id} user={user}/>) : null}
+                </div>
             </div>
         </div>
     )

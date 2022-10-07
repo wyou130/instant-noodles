@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  /* display: flex; */
 }
 
 .App-header {
@@ -14,7 +15,53 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: gray;
+}
+
+a {
+  color: gray
+}
+
+a:hover {
+  color: darkgray
+}
+
+/* .bg {
+  background-image: url('../src/assets/fernando-andrade-noodle-block.jpg');
+  height: auto;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+} */
+
+.home-container {
+  position: relative;
+  text-align: center;
+  color: white;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.home-image {
+  height: 600px;
+  width: 1000px;
+  object-fit: cover;
+}
+
+.home-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+h1 {
+  font-weight: 800;
+}
+
+.btn {
+  margin: 10px;
 }
 
 .card-img {
@@ -23,8 +70,29 @@
   height: 350px;
 }
 
-.review-card {
-  height: 350px;
+.hover:hover .overlay{
+  opacity: 1;
+}
+
+.overlay {
+  /* position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%; */
+  opacity: 0;
+  transition: .5s ease;
+  background-color: gray;
+}
+
+.text-card {
+  height: 500px;
+}
+
+.overlay {
+  font-weight: bold;
 }
 
 /* .image_grid{

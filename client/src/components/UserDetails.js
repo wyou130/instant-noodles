@@ -43,7 +43,7 @@ function UserDetails({ onSeeDetails, displayItem, currentUser, onDeleteUser, onE
             .then(res => {
                 if(res.ok) {
                     res.json()
-                    .then((updatedUser) => onEditUser(updatedUser)) 
+                    .then((updatedUser) => onSeeDetails(updatedUser)) 
                     .then(handleUserEdit)
                 }
                 alert('Profile successfully updated!')
@@ -64,54 +64,87 @@ function UserDetails({ onSeeDetails, displayItem, currentUser, onDeleteUser, onE
 
     return(
         <div>
-            User Profile
             {displayItem ? 
                 <div>
                     <div>
                         {isEditing ? 
-                            <form onSubmit={handleUpdate}>
-                                <label htmlFor="name">Username</label>
-                                <input 
-                                    type="text" 
-                                    name="name" 
-                                    value={name}
-                                    onChange={e => setName(e.target.value)}
-                                />
-                                <label htmlFor="location">Location</label>
-                                <input 
-                                    type="text" 
-                                    name="location" 
-                                    value={location}
-                                    onChange={e => setLocation(e.target.value)}
-                                />
-                                <label htmlFor="image">Profile Picture</label>
-                                <input 
-                                    type="text" 
-                                    name="image" 
-                                    value={image}
-                                    onChange={e => setImage(e.target.value)}
-                                />
-                                <button type="submit">Update</button>
-                            </form>
-                            :
                             <div>
-                                <img alt="me" src={displayItem.image}/>
-                                <h3>{displayItem.name}</h3>
-                                <p>From: {displayItem.location}</p>
+                                <button className='btn btn-secondary' onClick={() => handleUserEdit(currentUser)}>Cancel</button>
+                                <br/>
+                                <form onSubmit={handleUpdate}>
+                                    <div className='form-group row mx-5 my-2'>
+                                        <label className='col-sm-2 col-form-label' htmlFor="name">Username</label>
+                                        <div className='col-sm-8'>
+                                            <input 
+                                                className='form-control'
+                                                type="text" 
+                                                name="name" 
+                                                value={name}
+                                                onChange={e => setName(e.target.value)}
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className='form-group row mx-5 my-2'>
+                                        <label className='col-sm-2 col-form-label' htmlFor="location">Location</label>
+                                        <div className='col-sm-8'>
+                                            <input 
+                                                className='form-control'
+                                                type="text" 
+                                                name="location" 
+                                                value={location}
+                                                onChange={e => setLocation(e.target.value)}
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className='form-group row mx-5 my-2'>
+                                        <label className='col-sm-2 col-form-label' htmlFor="image">Profile Picture</label>
+                                        <div className='col-sm-8'>
+                                            <input 
+                                                className='form-control'
+                                                type="text" 
+                                                name="image" 
+                                                value={image}
+                                                onChange={e => setImage(e.target.value)}
+                                            />
+                                        </div>
+                                    </div>
+                                    <button className='btn btn-secondary' type="submit">Update</button>
+                                </form>
+                            </div>
+                            :
+                            <div className='card mb-3 mx-auto'>
+                                <div className='row no-gutters flexCont'>
+                                    <div className="col-md-4">
+                                        <img className="card-img my-5 mx-5" alt="me" src={displayItem.image}/>
+                                    </div>
+                                    <div className='col-md-8'>
+                                        <h3 className='card-title my-5'>{displayItem.name}</h3>
+                                        <p>From: {displayItem.location}</p>
+                                    </div>
+                                </div>
                             </div>
                         }
-                        {displayItem.id === currentUser.id && !isEditing ? <div>
-                        <button onClick={() => handleUserEdit(currentUser)}>Edit Profile</button>
-                        <button onClick={() => handleUserDelete(currentUser)}>Delete Account</button>
-                        </div> : null}
+                        {displayItem.id === currentUser.id && !isEditing ? 
+                            <div>
+                                <button className='btn btn-secondary' onClick={() => handleUserEdit(currentUser)}>Edit Profile</button> 
+                                <button className='btn btn-secondary' onClick={() => handleUserDelete(currentUser)}>Delete Account</button>
+                            </div> 
+                            : 
+                            null
+                        }
                     </div>
+                    <br/>
                     <div>
                         <h3>All {displayItem.name}'s Reviews</h3>
                         <div>
-                            {
-                                displayItem.reviews ? 
-                                displayItem.reviews.map(review => <ReviewItem key={review.id} review={review}/>) 
-                                : null
+                            {displayItem.reviews ? 
+                                <div className="container-fluid">
+                                    <div className="row">
+                                        {displayItem.reviews.map(review => <ReviewItem key={review.id} review={review}/>)}
+                                    </div>
+                                </div>
+                                : 
+                                null
                             }
                         </div>
                     </div>

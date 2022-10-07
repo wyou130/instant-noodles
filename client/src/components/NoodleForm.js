@@ -42,47 +42,70 @@ function NoodleForm({ onSubmitNewNoodle }) {
     return(
         <div>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="brand">Brand</label>
-                <input  
-                    required
-                    type="text" 
-                    name="brand" 
-                    value={brand}
-                    onChange={e => setBrand(e.target.value)}
-                />
-                <label htmlFor="flavor">Flavor</label>
-                <input
-                    required
-                    type="text" 
-                    name="flavor" 
-                    value={flavor}
-                    onChange={e => setFlavor(e.target.value)}
-                />
-                <label htmlFor="image">Image</label>
-                <input  
-                    required
-                    type="text" 
-                    name="image" 
-                    value={image}
-                    onChange={e => setImage(e.target.value)}
-                />
-                <label htmlFor="birthplace">Birthplace</label>
-                <input
-                    type="text" 
-                    name="birthplace" 
-                    value={birthplace}
-                    onChange={e => setBirthplace(e.target.value)}
-                />
-                <br/>
-                <label htmlFor="style">Style</label>
-                <input  
-                    type="text" 
-                    name="style" 
-                    value={style}
-                    onChange={e => setStyle(e.target.value)}
-                />
-                <br/>
-                <button type="submit">Add Noodle</button>
+                <div className='form-group row mx-5 my-2'>
+                    <label className='col-sm-2 col-form-label' htmlFor="brand">Brand</label>
+                    <div className='col-sm-8'>
+                        <input  
+                            className='form-control'
+                            required
+                            type="text" 
+                            name="brand" 
+                            value={brand}
+                            onChange={e => setBrand(e.target.value)}
+                        />
+                    </div>
+                </div>
+                <div className='form-group row mx-5 my-2'>
+                    <label className='col-sm-2 col-form-label' htmlFor="flavor">Flavor</label>
+                    <div className='col-sm-8'>
+                        <input
+                            className='form-control'
+                            required
+                            type="text" 
+                            name="flavor" 
+                            value={flavor}
+                            onChange={e => setFlavor(e.target.value)}
+                        />
+                    </div>
+                </div>
+                <div className='form-group row mx-5 my-2'>
+                    <label className='col-sm-2 col-form-label' htmlFor="image">Image</label>
+                    <div className='col-sm-8'>
+                        <input  
+                            className='form-control'
+                            required
+                            type="text" 
+                            name="image" 
+                            value={image}
+                            onChange={e => setImage(e.target.value)}
+                        />
+                    </div>
+                </div>
+                <div className='form-group row mx-5 my-2'>
+                    <label className='col-sm-2 col-form-label' htmlFor="birthplace">Birthplace</label>
+                    <div className='col-sm-8'>
+                        <input
+                            className='form-control'
+                            type="text" 
+                            name="birthplace" 
+                            value={birthplace}
+                            onChange={e => setBirthplace(e.target.value)}
+                        />
+                    </div>
+                </div>
+                <div className='form-group row mx-5 my-2'>
+                    <label className='col-sm-2 col-form-label' htmlFor="style">Style</label>
+                    <div className='col-sm-8'>
+                        <input  
+                            className='form-control'
+                            type="text" 
+                            name="style" 
+                            value={style}
+                            onChange={e => setStyle(e.target.value)}
+                        />
+                    </div>
+                </div>
+                <button className='btn btn-secondary' type="submit">Add Noodle</button>
             </form>
         </div>
     )

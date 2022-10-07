@@ -41,27 +41,38 @@ function Login({ onLogIn }) {
 
     return (
         <div>
-            <p>Log In</p>
+            <h1>Log In</h1>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="email">Email</label>
-                <input 
-                    required 
-                    type="text" 
-                    name="email" 
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
-                />
-                <label htmlFor="password">Password</label>
-                <input 
-                    required 
-                    type="password" 
-                    name="password" 
-                    value={password}
-                    onChange={e => setPassword(e.target.value)}
-                />
+                <div className='form-group row mx-5 my-2'>
+                    <label className='col-sm-2 col-form-label' htmlFor="email">Email</label>
+                    <div className='col-sm-8'>
+                        <input 
+                            className='form-control'
+                            required 
+                            type="text" 
+                            name="email" 
+                            value={email}
+                            onChange={e => setEmail(e.target.value)}
+                        />
+                    </div>
+                </div>
+                <div className='form-group row mx-5 my-2'>
+                    <label className='col-sm-2 col-form-label' htmlFor="password">Password</label>
+                    <div className='col-sm-8'>
+                        <input 
+                            className='form-control'
+                            required 
+                            type="password" 
+                            name="password" 
+                            value={password}
+                            onChange={e => setPassword(e.target.value)}
+                        />
+                    </div>
+                </div>
                 {/* <input type="checkbox" onClick={showPassword}>Show Password</input> */}
-                <button type="submit">Log In</button>
+                <button className='btn btn-secondary' type="submit">Log In</button>
             </form>
+            <br/>
             <div>
                 Don't have an account yet? <Link exact to='/signup'>Sign up now!</Link>
             </div>

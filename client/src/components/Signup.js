@@ -1,5 +1,5 @@
 import { useState } from 'react'
-// import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 function Signup({ onLogIn }) {
 
@@ -8,7 +8,7 @@ function Signup({ onLogIn }) {
     const [password, setPassword] = useState("")
     const [location, setLocation] = useState("")
     const [image, setImage] = useState("")
-    // let history = useHistory()
+    let history = useHistory()
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -31,10 +31,9 @@ function Signup({ onLogIn }) {
                 if(res.ok) {
                     res.json()
                     .then(newUser => onLogIn(newUser))
+                    history.push('/')
                 }
             })
-            // .then(newUser => console.log(newUser))
-        // history.push('/')
         setName("")
         setEmail("")
         setPassword("")
